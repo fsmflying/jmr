@@ -1,0 +1,47 @@
+<%@jet package="translated" class="Hello"%>
+<%@jet imports="java.lang.String"%>
+<%@jet imports="java.lang.StringBuilder"%>
+<%@jet imports="java.util.Date"%>
+<%@jet imports="java.util.Calendar"%>
+<%@jet imports="java.text.SimpleDateFormat"%>
+<%! 
+  String packageName="com.fsmflying.sys";
+  String[] tableNames = new String[]{
+    "im_user","im_group","im_group_member"
+  };
+  String[] modelNames = new String[]{
+    "ImUserModel","ImGroupModel","ImGroupMemberModel"
+  };
+%>
+package <%=packageName%>;
+
+<% for(int i=0;i<tableNames.length;i++){%>
+import lombok.Data;
+
+
+/**
+ *
+ * @author fangming
+ * @date <%=new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Calendar.getInstance().getTime())%>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+ @Data
+ public class <%=modelNames[i]%> {
+     private Long id;
+ }
+<%--
+Hello Jmr! 
+
+<%=new SimpleDateFormat("yyyy-MM-dd HH:mm").format(Calendar.getInstance().getTime())%>
+
+<%out.write("Hello Jmr!");%>
+
+<%="Hello Jmr!"%>
+  
+<get value="'Hello Jmr!'"/>
+--%>
+
+<%
+}
+%>
